@@ -1,6 +1,7 @@
 import { Clock, CheckCircle, XCircle, Calendar, DollarSign } from "lucide-react";
 import { Badge } from "../../components/ui/Badge";
 import { Card } from "../../components/ui/Card";
+import { motion } from "motion/react";
 
 interface Order {
   id: string;
@@ -34,35 +35,23 @@ export function Pedidos() {
   const getStatusConfig = (status: Order["status"]) => {
     switch (status) {
       case "confirmed":
-        return {
-          label: "Confirmado",
-          icon: CheckCircle,
-          variant: "success",
-        } as const;
+        return { label: "Confirmado", icon: CheckCircle, variant: "success" } as const;
       case "pending":
-        return {
-          label: "Pendente",
-          icon: Clock,
-          variant: "secondary",
-        } as const;
+        return { label: "Pendente", icon: Clock, variant: "secondary" } as const;
       case "cancelled":
-        return {
-          label: "Cancelado",
-          icon: XCircle,
-          variant: "destructive",
-        } as const;
+        return { label: "Cancelado", icon: XCircle, variant: "destructive" } as const;
     }
   };
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <div className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-border/50">
+      <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 border-b border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
           <h1 className="text-xl font-heading font-medium text-foreground">Meus Pedidos</h1>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-4 animate-slide-up">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-4">
         {mockOrders.length === 0 ? (
           <div className="text-center py-12">
             <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
@@ -71,38 +60,45 @@ export function Pedidos() {
             <p className="text-muted-foreground font-medium">Você ainda não tem pedidos</p>
           </div>
         ) : (
-          mockOrders.map((order) => {
+          mockOrders.map((order, i) => {
             const statusConfig = getStatusConfig(order.status);
             const StatusIcon = statusConfig.icon;
 
             return (
-              <Card key={order.id} className="p-5 border-none shadow-sm hover:shadow-md transition-all bg-white">
-                <div className="flex items-start justify-between mb-4 gap-3">
-                  <div className="min-w-0">
-                    <h3 className="font-heading font-semibold text-foreground text-lg mb-1">{order.caregiverName}</h3>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="w-3.5 h-3.5 shrink-0" />
-                      <span>{new Date(order.date).toLocaleDateString("pt-BR")}</span>
+              <motion.div
+                key={order.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card className="p-5 border-none shadow-sm hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                  <div className="flex items-start justify-between mb-4 gap-3">
+                    <div className="min-w-0">
+                      <h3 className="font-heading font-semibold text-foreground text-lg mb-1">{order.caregiverName}</h3>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Calendar className="w-3.5 h-3.5 shrink-0" />
+                        <span>{new Date(order.date).toLocaleDateString("pt-BR")}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mt-0.5">
+                        <Clock className="w-3.5 h-3.5 shrink-0" />
+                        <span>{order.time}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-0.5">
-                      <Clock className="w-3.5 h-3.5 shrink-0" />
-                      <span>{order.time}</span>
-                    </div>
+                    <Badge variant={statusConfig.variant} className="gap-1.5 py-1 px-2.5 shrink-0">
+                      <StatusIcon className="w-3.5 h-3.5" />
+                      <span>{statusConfig.label}</span>
+                    </Badge>
                   </div>
-                  <Badge variant={statusConfig.variant} className="gap-1.5 py-1 px-2.5 shrink-0">
-                    <StatusIcon className="w-3.5 h-3.5" />
-                    <span>{statusConfig.label}</span>
-                  </Badge>
-                </div>
 
-                <div className="border-t border-dashed border-border/60 pt-4 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-                    <DollarSign className="w-4 h-4" />
-                    <span>Total</span>
+                  <div className="border-t border-dashed border-border pt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                      <DollarSign className="w-4 h-4" />
+                      <span>Total</span>
+                    </div>
+                    <span className="text-xl font-heading font-bold text-primary">R$ {order.price}</span>
                   </div>
-                  <span className="text-xl font-heading font-bold text-primary">R$ {order.price}</span>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             );
           })
         )}

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { ArrowRight, Mail, Lock } from "lucide-react";
 import { Button } from "../../components/ui/Button";
+import { motion } from "motion/react";
 
 export function Login() {
     const navigate = useNavigate();
@@ -20,18 +22,28 @@ export function Login() {
                     alt="Caregiver holding hands"
                     className="absolute inset-0 w-full h-full object-cover opacity-60"
                 />
-                <div className="relative z-20 max-w-lg p-12 text-white text-center">
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative z-20 max-w-lg p-12 text-white text-center"
+                >
                     <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 border border-white/20">
                         <span className="text-3xl font-heading font-bold">C</span>
                     </div>
                     <h1 className="text-4xl font-heading font-bold mb-6 leading-tight">Cuidado profissional com quem você ama.</h1>
                     <p className="text-lg text-white/80 leading-relaxed">Conectamos as melhores cuidadoras a famílias que buscam segurança, carinho e profissionalismo.</p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Lado Direito - Form */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 bg-background relative">
-                <div className="w-full max-w-md space-y-8 animate-slide-up">
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="w-full max-w-md space-y-8"
+                >
                     <div className="text-center lg:text-left">
                         <Link to="/" className="lg:hidden inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-xl mb-6">
                             <span className="font-heading font-bold text-xl">C</span>
@@ -48,7 +60,7 @@ export function Login() {
                                 <input
                                     type="email"
                                     placeholder="seu@email.com"
-                                    className="w-full bg-muted/50 border border-input focus:border-primary/50 focus:bg-white rounded-xl pl-12 pr-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
+                                    className="w-full bg-muted/50 border border-input focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900 rounded-xl pl-12 pr-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
                                 />
                             </div>
                         </div>
@@ -63,7 +75,7 @@ export function Login() {
                                 <input
                                     type="password"
                                     placeholder="••••••••"
-                                    className="w-full bg-muted/50 border border-input focus:border-primary/50 focus:bg-white rounded-xl pl-12 pr-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
+                                    className="w-full bg-muted/50 border border-input focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900 rounded-xl pl-12 pr-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
                                 />
                             </div>
                         </div>
@@ -75,10 +87,10 @@ export function Login() {
                             </Button>
 
                             <div className="grid grid-cols-2 gap-3 pt-2">
-                                <Button variant="ghost" type="button" onClick={() => navigate("/app")} className="w-full text-xs font-normal text-muted-foreground hover:text-primary border border-border/50 hover:bg-primary/5">
+                                <Button variant="ghost" type="button" onClick={() => navigate("/app")} className="w-full text-xs font-normal text-muted-foreground hover:text-primary border border-border hover:bg-primary/5">
                                     Visitante (Família)
                                 </Button>
-                                <Button variant="ghost" type="button" onClick={() => navigate("/app/cuidador")} className="w-full text-xs font-normal text-muted-foreground hover:text-primary border border-border/50 hover:bg-primary/5">
+                                <Button variant="ghost" type="button" onClick={() => navigate("/app/cuidador")} className="w-full text-xs font-normal text-muted-foreground hover:text-primary border border-border hover:bg-primary/5">
                                     Visitante (Cuidador)
                                 </Button>
                             </div>
@@ -109,7 +121,7 @@ export function Login() {
                             Criar conta grátis
                         </Link>
                     </p>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

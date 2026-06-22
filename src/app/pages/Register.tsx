@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { ArrowRight, User, HeartHandshake } from "lucide-react";
 import { Button } from "../../components/ui/Button";
+import { motion } from "motion/react";
 
 export function Register() {
     const navigate = useNavigate();
@@ -13,9 +14,14 @@ export function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-neutral-50 p-4 sm:p-6 md:p-8">
-            <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col md:flex-row animate-scale-in">
-                {/* Lado Esquerdo - Propaganda */}
+        <div className="min-h-screen flex items-center justify-center bg-muted/30 p-4 sm:p-6 md:p-8">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-5xl bg-white dark:bg-slate-900 rounded-[2rem] shadow-xl overflow-hidden flex flex-col md:flex-row"
+            >
+                {/* Lado Esquerdo */}
                 <div className="w-full md:w-5/12 bg-primary p-6 sm:p-8 md:p-12 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none" />
@@ -52,8 +58,8 @@ export function Register() {
                     </div>
                 </div>
 
-                {/* Lado Direito - Cadastro */}
-                <div className="w-full md:w-7/12 p-6 sm:p-8 md:p-12 bg-white flex flex-col justify-center">
+                {/* Lado Direito */}
+                <div className="w-full md:w-7/12 p-6 sm:p-8 md:p-12 bg-white dark:bg-slate-900 flex flex-col justify-center">
                     <div className="max-w-md mx-auto w-full">
                         <div className="mb-8">
                             <h1 className="text-2xl font-heading font-bold text-foreground mb-2">Crie sua conta</h1>
@@ -61,11 +67,15 @@ export function Register() {
                         </div>
 
                         {!role ? (
-                            <div className="space-y-4 animate-slide-up">
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="space-y-4"
+                            >
                                 <p className="text-sm font-medium text-foreground mb-4">Você quer:</p>
 
                                 <button onClick={() => setRole("client")} className="w-full group text-left p-4 rounded-2xl border-2 border-muted hover:border-primary/50 bg-muted/30 hover:bg-primary/5 transition-all flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <User className="w-6 h-6" />
                                     </div>
                                     <div>
@@ -76,7 +86,7 @@ export function Register() {
                                 </button>
 
                                 <button onClick={() => setRole("caregiver")} className="w-full group text-left p-4 rounded-2xl border-2 border-muted hover:border-primary/50 bg-muted/30 hover:bg-primary/5 transition-all flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <HeartHandshake className="w-6 h-6" />
                                     </div>
                                     <div>
@@ -92,9 +102,14 @@ export function Register() {
                                         Fazer Login
                                     </Link>
                                 </p>
-                            </div>
+                            </motion.div>
                         ) : (
-                            <form onSubmit={handleRegister} className="space-y-5 animate-slide-up">
+                            <motion.form
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                onSubmit={handleRegister}
+                                className="space-y-5"
+                            >
                                 <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground bg-muted/50 p-2 px-3 rounded-lg w-fit">
                                     <span>Conta: </span>
                                     <span className="font-bold text-foreground capitalize">{role === 'client' ? 'Contratante' : 'Cuidador'}</span>
@@ -104,22 +119,22 @@ export function Register() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-foreground ml-1">Nome</label>
-                                        <input type="text" placeholder="Maria" className="w-full bg-muted/50 border border-input focus:bg-white rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
+                                        <input type="text" placeholder="Maria" className="w-full bg-muted/50 border border-input focus:bg-white dark:focus:bg-slate-900 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-foreground ml-1">Sobrenome</label>
-                                        <input type="text" placeholder="Silva" className="w-full bg-muted/50 border border-input focus:bg-white rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
+                                        <input type="text" placeholder="Silva" className="w-full bg-muted/50 border border-input focus:bg-white dark:focus:bg-slate-900 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-foreground ml-1">Email</label>
-                                    <input type="email" placeholder="seu@email.com" className="w-full bg-muted/50 border border-input focus:bg-white rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
+                                    <input type="email" placeholder="seu@email.com" className="w-full bg-muted/50 border border-input focus:bg-white dark:focus:bg-slate-900 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-foreground ml-1">Senha</label>
-                                    <input type="password" placeholder="Mínimo 8 caracteres" className="w-full bg-muted/50 border border-input focus:bg-white rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
+                                    <input type="password" placeholder="Mínimo 8 caracteres" className="w-full bg-muted/50 border border-input focus:bg-white dark:focus:bg-slate-900 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />
                                 </div>
 
                                 <Button type="submit" size="lg" className="w-full text-base py-6 shadow-lg shadow-primary/20 mt-4">
@@ -129,11 +144,11 @@ export function Register() {
                                 <p className="text-center text-sm text-muted-foreground mt-4">
                                     Ao criar conta, você aceita nossos <a href="#" className="underline">Termos</a> e <a href="#" className="underline">Privacidade</a>.
                                 </p>
-                            </form>
+                            </motion.form>
                         )}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }

@@ -9,6 +9,7 @@ import { Register } from "./pages/Register";
 import { OrderConfirmation } from "./pages/OrderConfirmation";
 import { CaregiverHome } from "./pages/CaregiverHome";
 import ProjectMap from "./pages/ProjectMap";
+import { ErrorPage } from "./pages/ErrorPage";
 import { RootLayout } from "./layouts/RootLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
 
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: AuthLayout,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, Component: Login },
       { path: "login", Component: Login },
@@ -29,6 +31,7 @@ export const router = createBrowserRouter([
   {
     path: "/app",
     Component: RootLayout,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, Component: Home },
       { path: "buscar", Component: Search },

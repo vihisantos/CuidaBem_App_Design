@@ -2,15 +2,41 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>CuidaBem - Cuidadores de Confiança</title>
     <meta name="description" content="Encontre cuidadores de idosos qualificados e de confiança. CuidaBem conecta você aos melhores profissionais." />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CuidaBem" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CuidaBem - Cuidadores de Confiança" />
+    <meta property="og:description" content="Encontre cuidadores de idosos qualificados e de confiança. Conectamos você aos melhores profissionais." />
+    <meta property="og:image" content="https://vihisantos.github.io/CuidaBem_App_Design/og-image.svg" />
+    <meta property="og:url" content="https://vihisantos.github.io/CuidaBem_App_Design/" />
+    <meta property="og:site_name" content="CuidaBem" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CuidaBem - Cuidadores de Confiança" />
+    <meta name="twitter:description" content="Encontre cuidadores de idosos qualificados e de confiança." />
+    <meta name="twitter:image" content="https://vihisantos.github.io/CuidaBem_App_Design/og-image.svg" />
+
     <link rel="icon" type="image/svg+xml" href="/CuidaBem_App_Design/favicon.svg" />
+    <link rel="manifest" href="/CuidaBem_App_Design/manifest.json" />
+    <link rel="apple-touch-icon" href="/CuidaBem_App_Design/favicon.svg" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/CuidaBem_App_Design/sw.js');
+      }
+    </script>
   </body>
 </html>

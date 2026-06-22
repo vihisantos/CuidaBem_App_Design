@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="32" fill="white" fill-opacity="0.1"/>
+  <text x="600" y="260" font-family="Inter,system-ui,sans-serif" font-size="80" font-weight="800" fill="white" text-anchor="middle">CuidaBem</text>
+  <text x="600" y="340" font-family="Inter,system-ui,sans-serif" font-size="32" fill="white" fill-opacity="0.8" text-anchor="middle">Cuidadores de Confiança</text>
+  <text x="600" y="420" font-family="Inter,system-ui,sans-serif" font-size="24" fill="white" fill-opacity="0.6" text-anchor="middle">React • Vite • Tailwind CSS • GitHub Pages</text>
+</svg>

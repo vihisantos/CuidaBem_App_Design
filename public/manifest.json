@@ -1,0 +1,20 @@
+{
+  "name": "CuidaBem - Cuidadores de Confiança",
+  "short_name": "CuidaBem",
+  "description": "Encontre cuidadores de idosos qualificados e de confiança. Conectamos você aos melhores profissionais.",
+  "start_url": "/CuidaBem_App_Design/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "scope": "/CuidaBem_App_Design/",
+  "icons": [
+    {
+      "src": "/CuidaBem_App_Design/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical"]
+}

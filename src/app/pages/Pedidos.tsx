@@ -56,11 +56,13 @@ export function Pedidos() {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <div className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-border/50 px-6 py-4 shadow-sm">
-        <h1 className="text-xl font-heading font-medium text-foreground">Meus Pedidos</h1>
+      <div className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-border/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
+          <h1 className="text-xl font-heading font-medium text-foreground">Meus Pedidos</h1>
+        </div>
       </div>
 
-      <div className="px-6 py-6 space-y-4 animate-slide-up">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-4 animate-slide-up">
         {mockOrders.length === 0 ? (
           <div className="text-center py-12">
             <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
@@ -75,19 +77,19 @@ export function Pedidos() {
 
             return (
               <Card key={order.id} className="p-5 border-none shadow-sm hover:shadow-md transition-all bg-white">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
+                <div className="flex items-start justify-between mb-4 gap-3">
+                  <div className="min-w-0">
                     <h3 className="font-heading font-semibold text-foreground text-lg mb-1">{order.caregiverName}</h3>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3.5 h-3.5 shrink-0" />
                       <span>{new Date(order.date).toLocaleDateString("pt-BR")}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mt-0.5">
-                      <Clock className="w-3.5 h-3.5" />
+                      <Clock className="w-3.5 h-3.5 shrink-0" />
                       <span>{order.time}</span>
                     </div>
                   </div>
-                  <Badge variant={statusConfig.variant} className="gap-1.5 py-1 px-2.5">
+                  <Badge variant={statusConfig.variant} className="gap-1.5 py-1 px-2.5 shrink-0">
                     <StatusIcon className="w-3.5 h-3.5" />
                     <span>{statusConfig.label}</span>
                   </Badge>

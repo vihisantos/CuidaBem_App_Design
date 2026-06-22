@@ -30,8 +30,8 @@ export function Search() {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Sticky Header */}
-      <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-border/50 pt-safe-top">
-        <div className="px-6 py-4 space-y-4">
+      <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-border/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 space-y-4">
           <div className="relative">
             <SearchIcon className="absolute left-4 top-3.5 w-5 h-5 text-primary" />
             <input
@@ -44,19 +44,19 @@ export function Search() {
           </div>
 
           <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide md:hidden">
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 px-4 shadow-sm border-dashed" onClick={() => setIsFilterOpen(true)}>
+            <Button variant="outline" size="sm" className="rounded-xl gap-2 px-4 shadow-sm border-dashed shrink-0" onClick={() => setIsFilterOpen(true)}>
               <Filter className="w-4 h-4" />
               Filtros
             </Button>
             {categories.map(cat => (
-              <button key={cat} className="whitespace-nowrap px-4 py-2 bg-white border border-border rounded-xl text-sm font-medium text-muted-foreground">
+              <button key={cat} className="whitespace-nowrap px-4 py-2 bg-white border border-border rounded-xl text-sm font-medium text-muted-foreground shrink-0">
                 {cat}
               </button>
             ))}
           </div>
 
           <div className="hidden md:flex gap-3">
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 px-4" onClick={() => setIsFilterOpen(true)}>
+            <Button variant="outline" size="sm" className="rounded-xl gap-2 px-4 shrink-0" onClick={() => setIsFilterOpen(true)}>
               <Filter className="w-4 h-4" />
               Todos os Filtros
             </Button>
@@ -69,18 +69,18 @@ export function Search() {
         </div>
       </div>
 
-      <div className="px-6 py-6 animate-slide-up">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 animate-slide-up">
         <h2 className="text-xl font-heading font-bold text-foreground mb-4 flex items-center gap-2">
           Resultados
           <span className="text-sm font-normal text-muted-foreground bg-muted px-2 py-0.5 rounded-full">{filteredCaregivers.length}</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filteredCaregivers.map((caregiver) => (
             <Link key={caregiver.id} to={`/app/perfil/${caregiver.id}`}>
               <Card className="p-4 border-none shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-white group">
                 <div className="flex gap-4">
-                  <div className="relative">
+                  <div className="relative shrink-0">
                     <img
                       src={caregiver.photo}
                       alt={caregiver.name}
@@ -94,16 +94,16 @@ export function Search() {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start gap-2">
                       <h3 className="font-heading font-bold text-lg text-foreground truncate">{caregiver.name}</h3>
-                      <Badge variant="secondary" className="px-1.5 py-0.5 text-xs font-bold gap-1 bg-yellow-400/10 text-yellow-600">
+                      <Badge variant="secondary" className="px-1.5 py-0.5 text-xs font-bold gap-1 bg-yellow-400/10 text-yellow-600 shrink-0">
                         <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                         {caregiver.rating}
                       </Badge>
                     </div>
 
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1 mb-2">
-                      <MapPin className="w-3.5 h-3.5" />
+                      <MapPin className="w-3.5 h-3.5 shrink-0" />
                       <span className="truncate">{caregiver.location}</span>
                     </div>
 
@@ -159,7 +159,6 @@ export function Search() {
 
           <div>
             <h3 className="font-medium mb-3 text-sm uppercase tracking-wide text-muted-foreground">Preço por Hora</h3>
-            {/* Placeholder for Price Range Slider */}
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div className="h-full w-1/2 bg-primary"></div>
             </div>

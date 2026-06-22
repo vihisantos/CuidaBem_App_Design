@@ -154,6 +154,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -164,4 +166,12 @@
   h2 { @apply text-3xl lg:text-4xl; }
   h3 { @apply text-2xl lg:text-3xl; }
   h4 { @apply text-xl lg:text-2xl; }
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

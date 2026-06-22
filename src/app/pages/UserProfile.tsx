@@ -15,38 +15,40 @@ export function UserProfile() {
   return (
     <div className="min-h-screen bg-background pb-28">
       {/* Profile Header */}
-      <div className="bg-white px-6 py-8 mb-4 border-b border-border/50 sticky top-0 z-30">
-        <div className="flex items-center gap-5 mb-8 animate-fade-in">
-          <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-lg shadow-primary/30 ring-4 ring-primary/5">
-            AM
+      <div className="bg-white border-b border-border/50 sticky top-0 z-30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+          <div className="flex items-center gap-5 mb-8 animate-fade-in">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-lg shadow-primary/30 ring-4 ring-primary/5 shrink-0">
+              AM
+            </div>
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl font-heading font-bold text-foreground truncate">Ana Maria</h1>
+              <p className="text-muted-foreground text-sm font-medium truncate">ana.maria@email.com</p>
+              <Button variant="link" className="h-auto p-0 text-primary text-xs mt-1">
+                Editar foto
+              </Button>
+            </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-heading font-bold text-foreground">Ana Maria</h1>
-            <p className="text-muted-foreground text-sm font-medium">ana.maria@email.com</p>
-            <Button variant="link" className="h-auto p-0 text-primary text-xs mt-1">
-              Editar foto
-            </Button>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/60">
-          <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
-            <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">12</div>
-            <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Serviços</div>
-          </div>
-          <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
-            <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">8</div>
-            <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Favoritos</div>
-          </div>
-          <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
-            <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">4.9</div>
-            <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Avaliação</div>
+          <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/60">
+            <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
+              <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">12</div>
+              <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Serviços</div>
+            </div>
+            <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
+              <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">8</div>
+              <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Favoritos</div>
+            </div>
+            <div className="text-center group cursor-pointer hover:bg-muted/50 p-2 rounded-xl transition-colors">
+              <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">4.9</div>
+              <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Avaliação</div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Menu Items */}
-      <div className="px-6 space-y-3 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-3 pt-6 animate-slide-up" style={{ animationDelay: '0.1s' }}>
         <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2 ml-1">Conta</h2>
         <Card className="p-2 border-none shadow-sm bg-white overflow-hidden">
           {menuItems.map((item, index) => {
@@ -68,7 +70,7 @@ export function UserProfile() {
       </div>
 
       {/* Logout */}
-      <div className="px-6 py-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
         <Button variant="outline" className="w-full justify-center gap-2 py-6 rounded-2xl hover:bg-destructive/5 hover:text-destructive hover:border-destructive/30 transition-all text-muted-foreground border-dashed">
           <LogOut className="w-5 h-5" />
           <span>Sair da Conta</span>

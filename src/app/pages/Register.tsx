@@ -9,14 +9,14 @@ export function Register() {
 
     const handleRegister = (e: React.FormEvent) => {
         e.preventDefault();
-        navigate("/app"); // Manda pro app direto sem validar nada kkkk
+        navigate("/app");
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-neutral-50 p-4 md:p-8">
-            <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col md:flex-row min-h-[600px] animate-scale-in">
-                {/* Lado Esquerdo - Propaganda chique */}
-                <div className="w-full md:w-5/12 bg-primary p-8 md:p-12 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-neutral-50 p-4 sm:p-6 md:p-8">
+            <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col md:flex-row animate-scale-in">
+                {/* Lado Esquerdo - Propaganda */}
+                <div className="w-full md:w-5/12 bg-primary p-6 sm:p-8 md:p-12 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none" />
 
@@ -24,8 +24,8 @@ export function Register() {
                         <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center mb-6 border border-white/30">
                             <span className="text-2xl font-heading font-bold">C</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Junte-se à nossa comunidade.</h2>
-                        <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4">Junte-se à nossa comunidade.</h2>
+                        <p className="text-primary-foreground/80 text-base sm:text-lg leading-relaxed">
                             Faça parte da plataforma que está transformando o cuidado no Brasil. Segurança e carinho em primeiro lugar.
                         </p>
                     </div>
@@ -52,8 +52,8 @@ export function Register() {
                     </div>
                 </div>
 
-                {/* Lado Direito - O cadastro em si */}
-                <div className="w-full md:w-7/12 p-8 md:p-12 bg-white flex flex-col justify-center">
+                {/* Lado Direito - Cadastro */}
+                <div className="w-full md:w-7/12 p-6 sm:p-8 md:p-12 bg-white flex flex-col justify-center">
                     <div className="max-w-md mx-auto w-full">
                         <div className="mb-8">
                             <h1 className="text-2xl font-heading font-bold text-foreground mb-2">Crie sua conta</h1>
@@ -101,7 +101,7 @@ export function Register() {
                                     <button type="button" onClick={() => setRole(null)} className="text-xs text-primary hover:underline ml-2">(Alterar)</button>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-foreground ml-1">Nome</label>
                                         <input type="text" placeholder="Maria" className="w-full bg-muted/50 border border-input focus:bg-white rounded-xl px-4 py-3 text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all font-medium" />

@@ -38,10 +38,10 @@ export function CaregiverHome() {
     return (
         <div className="min-h-screen bg-background pb-20">
             {/* Header / Stats */}
-            <div className="bg-primary pt-safe-top pb-8 px-6 rounded-b-[2.5rem] shadow-xl relative overflow-hidden">
+            <div className="bg-primary pb-8 px-4 sm:px-6 rounded-b-[2.5rem] shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
-                <div className="relative z-10">
+                <div className="relative z-10 max-w-4xl mx-auto">
                     <div className="flex justify-between items-center mb-8 pt-4">
                         <div className="flex items-center gap-3">
                             <img
@@ -80,7 +80,7 @@ export function CaregiverHome() {
             </div>
 
             {/* Opportunities List */}
-            <div className="px-6 py-8">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
                 <h2 className="text-xl font-heading font-bold text-foreground mb-6 flex items-center gap-2">
                     Oportunidades
                     <Badge variant="secondary" className="px-2 bg-primary/10 text-primary">Novas</Badge>
@@ -89,15 +89,15 @@ export function CaregiverHome() {
                 <div className="space-y-4">
                     {opportunities.map((job) => (
                         <Card key={job.id} className="p-5 border-none shadow-sm hover:shadow-md transition-all bg-white group animate-slide-up">
-                            <div className="flex justify-between items-start mb-3">
-                                <div>
+                            <div className="flex justify-between items-start mb-3 gap-3">
+                                <div className="min-w-0">
                                     <h3 className="font-bold text-foreground text-lg">{job.title}</h3>
                                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
-                                        <MapPin className="w-3.5 h-3.5" />
+                                        <MapPin className="w-3.5 h-3.5 shrink-0" />
                                         {job.location}
                                     </div>
                                 </div>
-                                <span className="text-xl font-bold text-green-600">R$ {job.price}</span>
+                                <span className="text-xl font-bold text-green-600 shrink-0">R$ {job.price}</span>
                             </div>
 
                             <div className="flex flex-wrap gap-2 mb-4">
@@ -108,7 +108,7 @@ export function CaregiverHome() {
                                 ))}
                             </div>
 
-                            <div className="flex items-center justify-between pt-3 border-t border-dashed border-neutral-100">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-3 border-t border-dashed border-neutral-100">
                                 <div className="flex gap-4 text-xs font-medium text-muted-foreground">
                                     <div className="flex items-center gap-1">
                                         <Calendar className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export function CaregiverHome() {
                                         {job.time}
                                     </div>
                                 </div>
-                                <Button size="sm" className="rounded-xl h-9">
+                                <Button size="sm" className="rounded-xl h-9 w-full sm:w-auto">
                                     Candidatar
                                     <ArrowRight className="w-4 h-4 ml-1" />
                                 </Button>

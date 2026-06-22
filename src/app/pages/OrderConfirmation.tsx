@@ -9,29 +9,27 @@ export function OrderConfirmation() {
     const [showContent, setShowContent] = useState(false);
 
     useEffect(() => {
-        // Finge que ta carregando/animando algo
         setTimeout(() => setShowContent(true), 300);
     }, []);
 
     return (
-        <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
-            {/* Enfeites do Fundo pra nao ficar branco chato */}
+        <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
             </div>
 
             <div className={`relative z-10 w-full max-w-md text-center transition-all duration-700 ${showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-scale-in">
-                    <CheckCircle className="w-12 h-12 text-green-600" />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-scale-in">
+                    <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-green-600" />
                 </div>
 
-                <h1 className="text-3xl font-heading font-bold text-foreground mb-2">Pedido Confirmado!</h1>
-                <p className="text-muted-foreground text-lg mb-8">Sua solicitação foi enviada com sucesso. Em breve o cuidador entrará em contato.</p>
+                <h1 className="text-2xl sm:text-3xl font-heading font-bold text-foreground mb-2">Pedido Confirmado!</h1>
+                <p className="text-muted-foreground text-base sm:text-lg mb-8">Sua solicitação foi enviada com sucesso. Em breve o cuidador entrará em contato.</p>
 
-                <Card className="p-6 border-dashed border-2 border-border/60 bg-white/50 backdrop-blur-sm mb-8">
+                <Card className="p-4 sm:p-6 border-dashed border-2 border-border/60 bg-white/50 backdrop-blur-sm mb-8">
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gray-200 overflow-hidden">
+                        <div className="w-12 h-12 rounded-xl bg-gray-200 overflow-hidden shrink-0">
                             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Caregiver" className="w-full h-full object-cover" />
                         </div>
                         <div className="text-left">
@@ -42,11 +40,11 @@ export function OrderConfirmation() {
 
                     <div className="space-y-3">
                         <div className="flex items-center gap-3 text-sm text-foreground/80">
-                            <Calendar className="w-4 h-4 text-primary" />
+                            <Calendar className="w-4 h-4 text-primary shrink-0" />
                             <span>14 de Fevereiro (Sexta)</span>
                         </div>
                         <div className="flex items-center gap-3 text-sm text-foreground/80">
-                            <Clock className="w-4 h-4 text-primary" />
+                            <Clock className="w-4 h-4 text-primary shrink-0" />
                             <span>08:00 - 12:00 (Manhã)</span>
                         </div>
                     </div>

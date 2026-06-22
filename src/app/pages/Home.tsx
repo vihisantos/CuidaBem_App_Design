@@ -10,12 +10,12 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-background pb-20">
-      {/* Seção Hero - A parte grandona azul */}
-      <div className="relative bg-gradient-to-br from-primary via-primary to-blue-600 text-primary-foreground rounded-b-[3rem] shadow-2xl overflow-hidden pb-16 pt-safe-top">
+      {/* Seção Hero */}
+      <div className="relative bg-gradient-to-br from-primary via-primary to-blue-600 text-primary-foreground rounded-b-[3rem] shadow-2xl overflow-hidden pb-16">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none" />
 
-        <div className="px-6 py-8 relative z-10 animate-fade-in">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 relative z-10 animate-fade-in">
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center">
@@ -45,8 +45,8 @@ export function Home() {
         </div>
       </div>
 
-      {/* Serviços Rápidos - Aqueles iconezinhos */}
-      <div className="px-6 -mt-12 relative z-20">
+      {/* Serviços Rápidos */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 -mt-12 relative z-20">
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x pt-2">
           {["Enfermagem", "Cuidador", "Fisioterapia", "Nutrição"].map((service, i) => (
             <Link key={service} to="/app/buscar" className="snap-center shrink-0">
@@ -61,7 +61,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="px-6 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-heading font-bold text-foreground">Destaques</h2>
           <Link to="/app/buscar" className="text-sm text-primary font-medium hover:underline decoration-2 underline-offset-4">
@@ -105,8 +105,8 @@ export function Home() {
         </div>
       </div>
 
-      {/* Bannerzao final */}
-      <div className="px-6 pb-8">
+      {/* Banner */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
         <div className="bg-slate-900 rounded-3xl p-6 relative overflow-hidden text-white">
           <div className="absolute right-0 top-0 w-32 h-32 bg-primary/30 rounded-full blur-3xl -mr-10 -mt-10" />
           <div className="relative z-10">

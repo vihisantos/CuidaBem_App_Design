@@ -7,12 +7,12 @@ export function Login() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        navigate("/app"); // finge que ta logando rs
+        navigate("/app");
     };
 
     return (
         <div className="flex min-h-screen">
-            {/* Lado Esquerdo - Coisa bonita pra ver */}
+            {/* Lado Esquerdo */}
             <div className="hidden lg:flex lg:w-1/2 bg-slate-900 relative overflow-hidden items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-purple-900/80 z-10 mix-blend-multiply" />
                 <img
@@ -29,8 +29,8 @@ export function Login() {
                 </div>
             </div>
 
-            {/* Lado Direito - O Form mesmo */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-background relative">
+            {/* Lado Direito - Form */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 bg-background relative">
                 <div className="w-full max-w-md space-y-8 animate-slide-up">
                     <div className="text-center lg:text-left">
                         <Link to="/" className="lg:hidden inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-xl mb-6">

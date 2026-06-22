@@ -12,50 +12,52 @@ export function RootLayout() {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-neutral-50 font-sans">
+    <div className="flex flex-col min-h-screen bg-neutral-50 font-sans">
       {/* Desktop Top Navigation */}
-      <nav className="hidden md:flex fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-neutral-200 z-50 px-6 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link to="/app" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
+      <nav className="hidden md:flex fixed top-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-md border-b border-neutral-200 z-50">
+        <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Link to="/app" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">C</span>
+              </div>
+              <span className="text-xl font-heading font-bold text-primary">CuidaBem</span>
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path || (item.path !== "/app" && location.pathname.startsWith(item.path));
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${isActive ? "text-primary" : "text-neutral-500"
+                    }`}
+                >
+                  <Icon className={`w-4 h-4 ${isActive ? "fill-primary/20" : ""}`} />
+                  <span>{item.label}</span>
+                </Link>
+              )
+            })}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
+              <User className="w-5 h-5 text-slate-600" />
             </div>
-            <span className="text-xl font-heading font-bold text-primary">CuidaBem</span>
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-8">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.path || (item.path !== "/app" && location.pathname.startsWith(item.path));
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${isActive ? "text-primary" : "text-neutral-500"
-                  }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? "fill-primary/20" : ""}`} />
-                <span>{item.label}</span>
-              </Link>
-            )
-          })}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
-            <User className="w-5 h-5 text-slate-600" />
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-auto pb-24 md:pb-0 md:pt-20">
+      <div className="flex-1 overflow-auto pb-20 md:pb-0 md:pt-16">
         <Outlet />
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-200 z-50 pb-safe">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-200 z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <div className="flex justify-around items-center h-16 max-w-lg mx-auto">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path || (item.path !== "/app" && location.pathname.startsWith(item.path));

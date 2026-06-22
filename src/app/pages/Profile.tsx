@@ -17,7 +17,7 @@ export function Profile() {
 
   if (!caregiver) {
     return (
-      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center">
           <h2 className="text-xl font-semibold text-neutral-900 mb-2">Profissional não encontrado</h2>
           <Button onClick={() => navigate("/app")} variant="link">
@@ -35,8 +35,8 @@ export function Profile() {
 
   return (
     <div className="min-h-screen bg-background pb-28">
-      {/* Cabeçalho bonitão imersivo */}
-      <div className="relative h-64 bg-slate-900">
+      {/* Cabeçalho imersivo */}
+      <div className="relative h-56 sm:h-64 bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60 z-10" />
         <img
           src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
@@ -44,8 +44,7 @@ export function Profile() {
           className="w-full h-full object-cover opacity-80"
         />
 
-        {/* Barra de navegação flutuante */}
-        <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-20">
+        <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex justify-between items-center z-20">
           <button
             onClick={() => navigate(-1)}
             className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
@@ -60,15 +59,15 @@ export function Profile() {
         </div>
       </div>
 
-      {/* Info do Perfil - Puxando pra cima igual app chique */}
-      <div className="relative -mt-12 px-6 z-30 animate-slide-up">
+      {/* Info do Perfil */}
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 relative -mt-12 z-30 animate-slide-up">
         <Card className="p-6 border-none shadow-xl">
           <div className="flex flex-col items-center -mt-16 mb-4">
             <div className="relative">
               <img
                 src={caregiver.photo}
                 alt={caregiver.name}
-                className="w-28 h-28 rounded-3xl object-cover border-4 border-white shadow-md"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-cover border-4 border-white shadow-md"
               />
               {caregiver.verified && (
                 <div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-1.5 border-4 border-white">
@@ -140,12 +139,12 @@ export function Profile() {
                 </div>
               </div>
 
-              <Card className="bg-primary/5 border-primary/10 p-4 flex items-center justify-between">
+              <Card className="bg-primary/5 border-primary/10 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <span className="block text-xs uppercase tracking-wider font-bold text-muted-foreground mb-1">Valor Hora</span>
                   <span className="text-2xl font-bold text-primary">R$ {caregiver.pricePerHour}</span>
                 </div>
-                <Button onClick={() => setIsBookingOpen(true)} size="lg" className="shadow-lg shadow-primary/20">
+                <Button onClick={() => setIsBookingOpen(true)} size="lg" className="shadow-lg shadow-primary/20 w-full sm:w-auto">
                   Contratar
                 </Button>
               </Card>
